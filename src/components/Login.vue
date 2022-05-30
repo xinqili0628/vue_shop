@@ -7,26 +7,14 @@
         <img src="../assets/logo.png" alt="" />
       </div>
       <!-- 登录表单区 -->
-      <el-form
-        class="login_form"
-        :model="loginFrom"
-        :rules="loginFromRules"
-        ref="loginFromRef"
-      >
+      <el-form class="login_form" :model="loginFrom" :rules="loginFromRules" ref="loginFromRef">
         <!-- 用户名 -->
         <el-form-item prop="username">
-          <el-input
-            prefix-icon="iconfont icon-user"
-            v-model="loginFrom.username"
-          ></el-input>
+          <el-input prefix-icon="iconfont icon-user" v-model="loginFrom.username"></el-input>
         </el-form-item>
         <!-- 密码 -->
         <el-form-item prop="password">
-          <el-input
-            prefix-icon="iconfont icon-3702mima"
-            v-model="loginFrom.password"
-            show-password
-          ></el-input>
+          <el-input prefix-icon="iconfont icon-3702mima" v-model="loginFrom.password" show-password></el-input>
         </el-form-item>
         <!-- 按钮 -->
         <el-form-item class="btns">
@@ -101,6 +89,7 @@ export default {
   background-color: #2b4b6b;
   height: 100%;
 }
+
 .login_box {
   width: 450px;
   height: 300px;
@@ -110,6 +99,7 @@ export default {
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
+
   .avatar_box {
     width: 130px;
     height: 130px;
@@ -121,6 +111,7 @@ export default {
     position: absolute;
     left: 50%;
     transform: translate(-50%, -50%);
+
     img {
       width: 100%;
       height: 100%;
@@ -129,10 +120,12 @@ export default {
     }
   }
 }
+
 .btns {
   display: flex;
   justify-content: right;
 }
+
 .login_form {
   position: absolute;
   bottom: 0;

@@ -325,6 +325,7 @@ export default {
         // 关闭分配角色对话框时的操作
         closeSetRoleDialog() {
             this.selectedRoleId = ''
+            this.userInfo = {}
         },
         // 点击按钮分配用户角色
         async saveRoleInfo() {

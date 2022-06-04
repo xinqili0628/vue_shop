@@ -1,7 +1,10 @@
 import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
+// 导入element ui组件库
 import './plugins/element.js'
+// 导入vue-table-with-tree-grid依赖
+import './plugins/treeTable.js'
 // 导入全局样式
 import './assets/css/global.css'
 // 导入第三方图标库（用的阿里图标库）

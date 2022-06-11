@@ -64,7 +64,6 @@
                         :props="cascaderProps"></el-cascader>
                 </el-form-item>
             </el-form>
-            <pre>{{ cateFrom }}</pre>
             <!-- 底部按钮区域 -->
             <span slot="footer" class="dialog-footer">
                 <el-button @click="addCateDialogVisible = false">取 消</el-button>

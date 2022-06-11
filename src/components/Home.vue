@@ -69,6 +69,7 @@ export default {
   computed: {},
   created() {
     this.getMenuList()
+    console.log('$route',this.$route)
   },
   methods: {
     logout() {
@@ -80,11 +81,11 @@ export default {
     // 获取所有的菜单
     async getMenuList() {
       const { data: res } = await this.$axios.get('/menus')
-      if (res.meta.status != 200) return this.$message.error('res.meta.msg')
+      if (res.meta.status != 200) return this.$message.error(res.meta.msg)
       this.menuList = res.data
-      // console.log(res)
+      console.log(res.data)
     },
-    // 店家按钮切换菜单的折叠与展开
+    // 点击按钮切换菜单的折叠与展开
     toggleCollapse() {
       this.isCollapse = !this.isCollapse
     },

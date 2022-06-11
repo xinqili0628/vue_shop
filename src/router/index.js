@@ -7,8 +7,12 @@ import Users from '@/components/user/Users.vue'
 import Roles from '@/components/power/Roles'
 import Rights from '@/components/power/Rights'
 import Cate from '@/components/goods/Cate'
+import Params from '@/components/goods/Params'
+import Goods from '@/components/goods/Goods'
+import Breadcrumb from '@/components/public/Breadcrumb' 
 Vue.use(VueRouter)
 
+Vue.component('my-bread',Breadcrumb)
 const routes = [
   {
     path: '/',
@@ -27,18 +31,24 @@ const routes = [
     children: [{
       path: '/welcome',
       component: Welcome
-    },{
+    }, {
       path: '/users',
       component: Users
-    },{
+    }, {
       path: '/roles',
       component: Roles
-    },{
+    }, {
       path: '/rights',
       component: Rights
-    },{
+    }, {
       path: '/categories',
       component: Cate
+    }, {
+      path: '/params',
+      component: Params,
+    },{
+      path: '/goods',
+      component: Goods,
     }
     ]
   }

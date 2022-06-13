@@ -5,6 +5,8 @@ import router from './router'
 import './plugins/element.js'
 // 导入vue-table-with-tree-grid依赖
 import './plugins/treeTable.js'
+//导入VueQuillEditor（富文本编辑器）
+import './plugins/VueQuillEditor.js'
 // 导入全局样式
 import './assets/css/global.css'
 // 导入第三方图标库（用的阿里图标库）
@@ -24,6 +26,17 @@ axios.interceptors.request.use(config => {
 Vue.prototype.$axios = axios
 
 Vue.config.productionTip = false
+
+Vue.filter('filter_formatTime',function(time) {
+  var now = new Date(time)
+  var nian = now.getFullYear()
+  var yue = (now.getMonth() + 1).toString().padStart(2, '0')
+  var ri = now.getDate().toString().padStart(2, '0')
+  var shi = now.getHours().toString().padStart(2, '0')
+  var fen = now.getMinutes().toString().padStart(2, '0')
+  var miao = now.getSeconds().toString().padStart(2, '0')
+  return `${nian}-${yue}-${ri} ${shi}:${fen}:${miao}`
+})
 
 new Vue({
   router,

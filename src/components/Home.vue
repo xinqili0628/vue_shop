@@ -10,12 +10,12 @@
       </el-header>
       <el-container>
         <!-- 根据isCollapse的值动态改变el-aside的宽度 -->
-        <el-aside :width="isCollapse ? '64px' : '200px'" >
+        <el-aside :width="isCollapse ? '64px' : '200px'">
           <div class="toggle_button" @click="toggleCollapse">|||</div>
           <!-- 菜单区 -->
           <!--  :default-active = 'this.$route.path 根据地址栏路由保持菜单高亮 -->
           <el-menu background-color="#333744" text-color="#fff" active-text-color="#359BFF" unique-opened
-            :collapse='isCollapse' :collapse-transition = 'false' :router = 'true' :default-active = 'this.$route.path'>
+            :collapse='isCollapse' :collapse-transition='false' :router='true' :default-active='this.$route.path'>
             <!-- 一级菜单 -->
             <!-- 这里打开一个菜单所有菜单都打开是因为index值相同导致，使用:index动态绑定一个【字符串】就可以 -->
             <el-submenu :index="item.id + ''" v-for='item in menuList' :key="item.id">
@@ -63,15 +63,27 @@ export default {
         '145': 'iconfont icon-baobiao',
       },
       // 默认不折叠菜单
-      isCollapse: false
+      isCollapse: false,
+      // 面包屑数据
+      breadcrumbList:[]
     };
   },
   computed: {},
   created() {
     this.getMenuList()
-    console.log('$route',this.$route)
+    console.log('$route', this.$route)
   },
   methods: {
+    // 收集面包屑需要的数据
+    caleBreadcrumb() {
+      const temp = []
+      this.$route.matched.forEach((item) => {
+        if (item.meta.title && item.path) {
+          temp.push({ path: item.path, title: item.meta.title })
+        }
+      })
+      this.breadcrumbList = temp  // this.breadcrumbList --> data声明的变量
+    },
     logout() {
       //   清除token
       window.sessionStorage.removeItem("token");

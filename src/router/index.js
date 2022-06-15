@@ -10,10 +10,11 @@ import Cate from '@/components/goods/Cate'
 import Params from '@/components/goods/Params'
 import GoodsList from '@/components/goods/List'
 import Add from '@/components/goods/Add'
-import Breadcrumb from '@/components/public/Breadcrumb' 
+import Order from '@/components/order/Order'
+import Breadcrumb from '@/components/public/Breadcrumb'
 Vue.use(VueRouter)
 
-Vue.component('my-bread',Breadcrumb)
+Vue.component('my-bread', Breadcrumb)
 const routes = [
   {
     path: '/',
@@ -29,31 +30,16 @@ const routes = [
     component: Home,
     // 当用户访问/home组件时重定向到home的子路由welcome组件
     redirect: '/welcome',
-    children: [{
-      path: '/welcome',
-      component: Welcome
-    }, {
-      path: '/users',
-      component: Users
-    }, {
-      path: '/roles',
-      component: Roles
-    }, {
-      path: '/rights',
-      component: Rights
-    }, {
-      path: '/categories',
-      component: Cate
-    }, {
-      path: '/params',
-      component: Params,
-    },{
-      path: '/goods',
-      component: GoodsList,
-    },{
-      path: '/goods/add',
-      component: Add,
-    }
+    children: [
+      { path: '/welcome', component: Welcome },
+      { path: '/users', component: Users },
+      { path: '/roles', component: Roles },
+      { path: '/rights', component: Rights },
+      { path: '/categories', component: Cate },
+      { path: '/params', component: Params },
+      { path: '/goods', component: GoodsList },
+      { path: '/goods/add', component: Add },
+      { path: '/orders', component: Order }
     ]
   }
 ]
